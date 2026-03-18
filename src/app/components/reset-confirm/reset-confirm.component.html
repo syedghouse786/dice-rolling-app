@@ -1,0 +1,26 @@
+<div class="reset-overlay">
+  <div class="reset-dialog">
+    @if (errorMessage) {
+      <div class="error-message">{{ errorMessage }}</div>
+    }
+
+    @if (phase === 'confirming') {
+      <p class="confirm-text">Are you sure? Your score of <strong>{{ currentScore }}</strong> will be lost.</p>
+      <div class="button-group">
+        <button class="btn btn-confirm" (click)="confirm.emit()">Yes, Reset</button>
+        <button class="btn btn-cancel" (click)="cancelReset.emit()">Cancel</button>
+      </div>
+    }
+
+    @if (phase === 'countdown') {
+      <p class="countdown-text">Reset complete. Undo in <strong>{{ countdown }}s</strong></p>
+      <button class="btn btn-undo" (click)="undo.emit()">↩ Undo</button>
+    }
+
+    @if (phase === 'restoring') {
+      <div class="loading-spinner"></div>
+      <p class="restoring-text">Restoring...</p>
+      <button class="btn btn-undo" disabled>↩ Undo</button>
+    }
+  </div>
+</div>
