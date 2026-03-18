@@ -1,0 +1,16 @@
+<div class="dice-selector">
+  <label class="selector-label">Number of dice:</label>
+  <div class="options" role="radiogroup" aria-label="Number of dice">
+    @for (option of options; track option) {
+      <button
+        type="button"
+        class="option-btn"
+        [class.selected]="option === selectedCount"
+        [attr.aria-pressed]="option === selectedCount"
+        (click)="selectCount(option)"
+      >
+        {{ option }}
+      </button>
+    }
+  </div>
+</div>

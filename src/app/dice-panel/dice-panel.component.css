@@ -1,0 +1,72 @@
+.dice-panel {
+  text-align: center;
+  padding: 2rem;
+  max-width: 400px;
+  margin: 2rem auto;
+}
+
+h1 {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary, #ffffff);
+}
+
+.die-area {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.last-roll {
+  font-size: 1.125rem;
+  color: var(--accent, #e94560);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.score {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary, #ffffff);
+  margin-bottom: 0.5rem;
+}
+
+.attempts {
+  font-size: 1rem;
+  color: var(--text-secondary, #a0a0b8);
+  margin-bottom: 1.5rem;
+}
+
+.game-over p {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent, #e94560);
+  margin-bottom: 1rem;
+}
+
+.reset-btn {
+  padding: 0.75rem 2rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  background: var(--accent, #e94560);
+  color: #ffffff;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.reset-btn:hover {
+  background: color-mix(in srgb, var(--accent, #e94560) 85%, #000);
+}
+
+@media (max-width: 600px) {
+  .dice-panel {
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+}

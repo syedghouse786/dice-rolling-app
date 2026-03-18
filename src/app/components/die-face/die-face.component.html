@@ -1,0 +1,11 @@
+<div class="die-face" [class.rolling]="isRolling">
+  <div class="grid">
+    @for (hasDot of gridCells; track $index) {
+      <div class="cell">
+        @if (hasDot) {
+          <span class="dot"></span>
+        }
+      </div>
+    }
+  </div>
+</div>

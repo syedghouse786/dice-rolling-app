@@ -1,0 +1,13 @@
+@if (history.length > 0) {
+  <div class="history-section">
+    <h2>Roll History</h2>
+    <ul class="history-list">
+      @for (entry of history; track entry.timestamp) {
+        <li class="history-entry">
+          <span class="history-values">{{ entry.values.join(', ') }}</span>
+          <span class="history-total">= {{ entry.total }}</span>
+        </li>
+      }
+    </ul>
+  </div>
+}

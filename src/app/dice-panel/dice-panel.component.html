@@ -1,0 +1,33 @@
+<div class="dice-panel">
+  <h1>🎲 Dice Roller</h1>
+
+  <div class="die-area">
+    @if (isRolling) {
+      <app-die-face [value]="lastRoll ?? 1" [isRolling]="true"></app-die-face>
+    } @else {
+      <app-die-face [value]="lastRoll ?? 1" [isRolling]="false"></app-die-face>
+    }
+  </div>
+
+  @if (lastRoll !== null && !isRolling) {
+    <div class="last-roll">You rolled a {{ lastRoll }}</div>
+  }
+
+  <div class="score">Total Score: {{ totalScore }}</div>
+
+  <div class="attempts">
+    Rolls: {{ attemptsUsed }} / {{ MAX_ATTEMPTS }}
+  </div>
+
+  @if (!gameOver) {
+    <app-roll-button
+      [disabled]="isRolling"
+      (roll)="onRoll()"
+    ></app-roll-button>
+  } @else {
+    <div class="game-over">
+      <p>Game Over! Final Score: {{ totalScore }}</p>
+      <button class="reset-btn" (click)="onReset()">Play Again</button>
+    </div>
+  }
+</div>

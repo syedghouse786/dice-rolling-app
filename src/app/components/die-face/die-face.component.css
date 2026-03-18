@@ -1,0 +1,58 @@
+.die-face {
+  width: 120px;
+  height: 120px;
+  background: var(--bg-card, #16213e);
+  border-radius: 16px;
+  padding: 16px;
+  display: inline-block;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: 100%;
+  height: 100%;
+  gap: 2px;
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dot {
+  width: 20px;
+  height: 20px;
+  background: #ffffff;
+  border-radius: 50%;
+}
+
+/* Rolling animation */
+@keyframes roll {
+  0% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(90deg) scale(0.9); }
+  50% { transform: rotate(180deg) scale(1); }
+  75% { transform: rotate(270deg) scale(0.9); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+.die-face.rolling {
+  animation: roll 500ms ease-in-out;
+}
+
+/* Responsive: small screens */
+@media (max-width: 600px) {
+  .die-face {
+    width: 64px;
+    height: 64px;
+    padding: 8px;
+  }
+
+  .dot {
+    width: 11px;
+    height: 11px;
+  }
+}

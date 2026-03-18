@@ -1,0 +1,39 @@
+.roll-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  background: var(--accent, #e94560);
+  color: #ffffff;
+  cursor: pointer;
+  transition: background 0.2s, opacity 0.2s, transform 0.1s;
+}
+
+.roll-btn:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--accent, #e94560) 85%, #000);
+}
+
+.roll-btn:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.roll-btn:disabled,
+.roll-btn.disabled {
+  background: #555;
+  color: #999;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Responsive: small screens */
+@media (max-width: 600px) {
+  .roll-btn {
+    padding: 0.75rem 1.5rem;
+    width: 100%;
+    justify-content: center;
+  }
+}
