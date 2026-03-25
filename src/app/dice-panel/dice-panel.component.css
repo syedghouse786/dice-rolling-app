@@ -83,6 +83,17 @@ h1 {
   background: #555;
 }
 
+.play-again-btn {
+  background: #2ecc71;
+  color: #ffffff;
+  padding: 0.75rem 2rem;
+  font-size: 1.125rem;
+}
+
+.play-again-btn:hover {
+  background: #27ae60;
+}
+
 .error-toast {
   background: rgba(233, 69, 96, 0.2);
   color: var(--accent, #e94560);

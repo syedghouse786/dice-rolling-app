@@ -49,6 +49,13 @@ export class DicePanelComponent implements OnDestroy {
     }, 500);
   }
 
+  onPlayAgain(): void {
+    if (!this.gameOver) return;
+    this.totalScore = 0;
+    this.lastRoll = null;
+    this.attemptsUsed = 0;
+  }
+
   onReset(): void {
     try {
       this.resetService.initiateReset({
