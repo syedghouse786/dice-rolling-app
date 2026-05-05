@@ -6,8 +6,14 @@ cp -r /var/www/html/dice-app/* /usr/share/nginx/html/
 chown -R nginx:nginx /usr/share/nginx/html
 chmod -R 755 /usr/share/nginx/html
 
-# Configure Nginx for Angular routing (try_files fallback to index.html)
+# Create basic auth credentials (username: demo, password: DiceGame2026!)
+htpasswd -cb /etc/nginx/.htpasswd demo DiceGame2026!
+
+# Configure Nginx with basic auth and Angular routing
 tee /etc/nginx/default.d/angular.conf > /dev/null <<'EOF'
+auth_basic "Restricted Access";
+auth_basic_user_file /etc/nginx/.htpasswd;
+
 location / {
     try_files $uri $uri/ /index.html;
 }
