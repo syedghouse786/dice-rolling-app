@@ -1,12 +1,12 @@
 <div class="dice-panel">
   <h1>🎲 Dice Roller</h1>
 
+  @if (errorMessage && resetService.resetPhase === 'idle') {
+    <div class="error-toast">{{ errorMessage }}</div>
+  }
+
   <div class="die-area">
-    @if (isRolling) {
-      <app-die-face [value]="lastRoll ?? 1" [isRolling]="true"></app-die-face>
-    } @else {
-      <app-die-face [value]="lastRoll ?? 1" [isRolling]="false"></app-die-face>
-    }
+    <app-die-face [value]="lastRoll ?? 1" [isRolling]="isRolling"></app-die-face>
   </div>
 
   @if (lastRoll !== null && !isRolling) {
@@ -20,14 +20,32 @@
   </div>
 
   @if (!gameOver) {
-    <app-roll-button
-      [disabled]="isRolling"
-      (roll)="onRoll()"
-    ></app-roll-button>
+    <div class="action-buttons">
+      <app-roll-button
+        [disabled]="isRolling || resetService.resetPhase !== 'idle'"
+        (roll)="onRoll()"
+      ></app-roll-button>
+
+      @if (attemptsUsed > 0 && resetService.resetPhase === 'idle') {
+        <button class="reset-btn" (click)="onReset()">🔄 Reset</button>
+      }
+    </div>
   } @else {
     <div class="game-over">
       <p>Game Over! Final Score: {{ totalScore }}</p>
-      <button class="reset-btn" (click)="onReset()">Play Again</button>
+      <button class="reset-btn play-again-btn" (click)="onPlayAgain()">Play Again</button>
     </div>
   }
 </div>
+
+@if (resetService.resetPhase !== 'idle') {
+  <app-reset-confirm
+    [currentScore]="totalScore"
+    [countdown]="countdownValue"
+    [phase]="resetService.resetPhase"
+    [errorMessage]="errorMessage"
+    (confirm)="onConfirmReset()"
+    (cancelReset)="onCancelReset()"
+    (undo)="onUndo()"
+  ></app-reset-confirm>
+}

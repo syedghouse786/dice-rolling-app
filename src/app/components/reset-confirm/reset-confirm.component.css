@@ -1,0 +1,90 @@
+.reset-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.reset-dialog {
+  background: var(--bg-card, #16213e);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  max-width: 320px;
+  width: 90%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.confirm-text, .countdown-text, .restoring-text {
+  color: var(--text-primary, #fff);
+  font-size: 1.1rem;
+  margin-bottom: 1.25rem;
+}
+
+.button-group {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.btn {
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s, opacity 0.2s;
+}
+
+.btn-confirm {
+  background: var(--accent, #e94560);
+  color: #fff;
+}
+
+.btn-cancel {
+  background: #444;
+  color: #ccc;
+}
+
+.btn-undo {
+  background: #2ecc71;
+  color: #fff;
+  font-size: 1.1rem;
+  padding: 0.7rem 2rem;
+}
+
+.btn-undo:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn:hover:not(:disabled) {
+  opacity: 0.85;
+}
+
+.error-message {
+  background: rgba(233, 69, 96, 0.2);
+  color: var(--accent, #e94560);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.loading-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  border-top-color: #2ecc71;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
