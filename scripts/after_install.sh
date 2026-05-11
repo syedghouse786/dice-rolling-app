@@ -6,8 +6,8 @@ cp -r /var/www/html/dice-app/* /usr/share/nginx/html/
 chown -R nginx:nginx /usr/share/nginx/html
 chmod -R 755 /usr/share/nginx/html
 
-# Create basic auth credentials (username: Test, password: Test1234!)
-htpasswd -cb /etc/nginx/.htpasswd Test Test1234!
+# Create basic auth credentials (username: demo, password: DiceGame2026!)
+htpasswd -cb /etc/nginx/.htpasswd demo 'DiceGame2026!'
 
 # Configure Nginx with basic auth and Angular routing
 tee /etc/nginx/default.d/angular.conf > /dev/null <<'EOF'
